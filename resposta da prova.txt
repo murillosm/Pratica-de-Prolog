@@ -1,0 +1,56 @@
+exercicio 01
+	a)-> artigo([die,katze,jagte,die,maus],R).
+		A saida foi "False", não teve atributos declarados.
+		
+	b)-> sujeito([die,katze,jagte,die,maus],R).
+		A saida foi "False", porque "artigo" faz parte da regra do "sujeito" porém "artigo", não teve os atributos declarados.
+
+	c)-> frase([die,katze,maus,die,jagte],[]).
+		A saida foi "False", porque "sujeito" faz parte da regra da "frase" porém por causa, "artigo", que não teve os atributos declarados.
+		
+	d)-> frase([die,katze,jagte,die,maus],[]).
+		A saida foi "False", porque "sujeito" faz parte da regra da "frase" porém por causa, "artigo", que não teve os atributos declarados.
+	
+	e)-> frase([die,maus,jagte,die,katze],[]).
+		A saida foi "False", porque "sujeito" faz parte da regra da "frase" porém por causa, "artigo", que não teve os atributos declarados.
+	
+	f)-> frase([katze,jagte,maus],[]).
+		A saida foi "False", porque "sujeito" faz parte da regra da "frase" porém por causa, "artigo", que não teve os atributos declarados.
+	
+	
+exercicio 03
+	01 - 
+		id(Y,X).
+		Y = 1, X = poo ;
+		Y = 2, X = programacao_web ;
+		Y = 3, X = ed1 ;
+		Y = 4, X = ed2 ;
+		Y = 5, X = algoritmo.
+		
+	02 - 
+		?- consultar_pre(ed1).
+		Nao tem pre-Requisito!
+		
+		?- consultar_pre(poo).
+		pre-Requisito: algoritmo
+		
+		consultar_pre(algoritmo).
+		Nao tem pre-Requisito!
+		
+	03 - 
+		nao_tem_pre(X).
+		X = poo ;
+		X = algoritmo ;
+		X = ed1.
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

@@ -1,0 +1,14 @@
+frase(A,C) :- sujeito(A,B), predicado(B,C).
+sujeito(A,C) :- artigo(A,B), substantivo(B,C).
+predicado(A,D) :- verbo(A,B),artigo(B,C),substantivo(C,D).
+artigo([o|A],A).
+substantivo([katze|A],A).
+substantivo([maus|A],A).
+verbo([jagen|A],A).
+
+#artigo([die,katze,jagte,die,maus],R).
+#sujeito([die,katze,jagte,die,maus],R).
+#frase([die,katze,maus,die,jagte],[]).
+#frase([die,katze,jagte,die,maus],[]).
+#frase([die,maus,jagte,die,katze],[]).
+#frase([katze,jagte,maus],[]).

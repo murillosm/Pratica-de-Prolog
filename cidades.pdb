@@ -1,0 +1,6 @@
+:- dynamic capital/2.
+
+capital(tocantins, palmas).
+capital(minas, belohorizonte).
+capital(goias, goiania).
+

@@ -1,0 +1,34 @@
+`findall/3` é um predicado em Prolog usado para construir uma lista de todas as instâncias de uma variável que satisfazem uma determinada meta (um conjunto de predicados). A sintaxe geral é a seguinte:
+
+```prolog
+findall(Instancia, Meta, Lista)
+```
+
+- `Instancia`: A variável cujas instâncias você deseja coletar em uma lista.
+- `Meta`: A meta (conjunto de predicados) cujas soluções são coletadas.
+- `Lista`: A lista resultante contendo todas as instâncias de `Instancia` que satisfazem `Meta`.
+
+Vamos usar um exemplo simples para ilustrar o uso do `findall/3`. Suponha que você tenha fatos sobre alunos e suas notas:
+
+```prolog
+nota(joao, 8).
+nota(maria, 7).
+nota(joana, 9).
+nota(pedro, 8).
+nota(ana, 7).
+```
+
+Agora, se você quiser coletar todas as notas dos alunos em uma lista, você pode usar `findall/3` da seguinte forma:
+
+```prolog
+?- findall(Nota, nota(_, Nota), Notas).
+```
+
+Neste exemplo:
+- `Instancia` é `Nota` (a variável que estamos interessados em coletar).
+- `Meta` é `nota(_, Nota)` (a meta que desejamos satisfazer).
+- `Lista` é `Notas` (a lista resultante que conterá todas as instâncias de `Nota` que satisfazem a `Meta`).
+
+O resultado será `Notas = [8, 7, 9, 8, 7]`, que é a lista de todas as notas dos alunos.
+
+`findall/3` é uma ferramenta útil para coletar resultados de consultas em uma lista, facilitando o processamento posterior desses resultados em Prolog.

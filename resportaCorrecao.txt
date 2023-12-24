@@ -1,0 +1,37 @@
+Exercício 01
+
+a) ?- artigo([die,katze, jagte, die,maus],R).
+
+		- Resposta: false
+		- Explicação: A consulta não possui correspondência porque a regra artigo([o|A],A).
+		  requer que a lista comece com o artigo "o", mas a lista fornecida começa com "die".
+		  
+  
+b) ?- sujeito([die,katze,jagte,die,maus],R).
+
+		- Resposta: false
+		- Explicação: A consulta não possui correspondência porque a regra sujeito(A,C):- artigo(A,B), substantivo(B,C).
+		  requer que a lista comece com um artigo, mas a lista fornecida começa com "die
+		  
+		  
+c) ?- frase([die,katze,maus,die,jagte],[]).
+
+		- Resposta: false
+		- Explicação: A consulta não possui correspondência porque a ordem dos termos não está de acordo com a regra frase(A,C) :- sujeito(A,B), predicado(B,C).
+		A consulta c) é a seguinte:
+
+		```prolog
+		?- frase([die,katze,maus,die,jagte], []).
+		```
+
+		Esta consulta está tentando encontrar uma correspondência para a regra `frase(A,C) :- sujeito(A,B), predicado(B,C).`.
+
+		Agora, considere as unificações durante a execução desta consulta:
+
+		1. `frase([die,katze,maus,die,jagte], [])` unifica com:
+		   - `sujeito([die | B1], B1)` onde `B1 = [katze, maus, die, jagte]`.
+		   - `predicado(B1, [])` onde `B1 = [katze, maus, die, jagte]`.
+		  
+		2. `sujeito([die | B1], B1)` unifica com `sujeito([die | B2], B2)` onde `B2 = [katze, maus, die, jagte]`.
+		3. `artigo([die | B2], B2)` unifica com `artigo([die | A], A)` onde `A = [katze, maus, die, jagte]`.
+		4. `substantivo([katze, maus, die, jagte], [])` unifica com `substantivo([katze | C], C)` onde `C = [maus, die, jagte]`.
